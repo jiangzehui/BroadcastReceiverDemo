@@ -3,16 +3,18 @@ package com.example.jiangzehui.broadcastreceiverdemo;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.Toast;
 
 /**
- * 动态注册方式
  * Created by jiangzehui on 17/11/27.
+ * 静态注册方式
  */
 
-public class MyReceiver extends BroadcastReceiver {
-    ReceiverCallBack callBack;
+public class MyReceiver2 extends BroadcastReceiver {
 
-    public MyReceiver(ReceiverCallBack callBack) {
+    MyReceiver2.ReceiverCallBack callBack;
+
+    public MyReceiver2(MyReceiver2.ReceiverCallBack callBack) {
         this.callBack = callBack;
     }
 
@@ -20,7 +22,8 @@ public class MyReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         String content = intent.getStringExtra("content");
-        callBack.updateUi(content);
+        Toast.makeText(context,content,Toast.LENGTH_SHORT).show();
+       // callBack.updateUi(content);
     }
 
 

@@ -29,6 +29,16 @@ public class MainActivity extends AppCompatActivity {
                 sendBroadcast(intent);
             }
         });
+
+        findViewById(R.id.btn2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction("broad2");
+                intent.putExtra("content", "content=" + random.nextInt(100));
+                sendBroadcast(intent);
+            }
+        });
     }
 
     MyReceiver.ReceiverCallBack callBack = new MyReceiver.ReceiverCallBack() {
